@@ -11,4 +11,4 @@ file(GLOB SOURCES "*.cpp")
 add_executable(MyGame ${SOURCES})
 
 # specify required libraries
-target_link_libraries(MyGame astu astu_box2d)
+target_link_libraries(MyGame astu_box2d astu)
