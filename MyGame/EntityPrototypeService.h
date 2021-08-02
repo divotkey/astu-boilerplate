@@ -25,5 +25,7 @@ private:
   virtual void OnStartup() override;
   virtual void OnShutdown() override;
 
-  std::shared_ptr<astu::Entity> CreateBoundaryPrototype(float w, float h);
+  std::shared_ptr<astu::Entity> CreateBoundary(float w, float h);
+  std::shared_ptr<astu::Entity> CreateTestEntity();
+
 };

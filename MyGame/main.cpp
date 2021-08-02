@@ -7,6 +7,7 @@
 // Local includes
 #include "EntityPrototypeService.h"	
 #include "GameModeService.h"
+#include "Constants.h"
 
 // ASTU/Box2D includes
 #include <AstuBox2D.h>
@@ -42,7 +43,7 @@ int main()
 	ASTU_CREATE_AND_ADD_SERVICE(GameModeService);
 
 	// Configure physics environment.
-	ASTU_SERVICE(PhysicsSystem).SetGravityVector(0, 0);
+	ASTU_SERVICE(PhysicsSystem).SetGravityVector(GRAVITY);
 
 	// Configure input controls (Axis and Actions)
 	// ASTU_SERVICE(InputMappingService).AddAxisMapping("Paddle", Keys::Left, -1.0f);

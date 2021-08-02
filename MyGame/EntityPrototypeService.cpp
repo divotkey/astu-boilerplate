@@ -28,10 +28,11 @@ void EntityPrototypeService::OnStartup()
 	auto &entityFactory = ASTU_SERVICE(EntityFactoryService);
 
   // Register boundary entity prototypes.
-  entityFactory.RegisterPrototype("HBoundary", CreateBoundaryPrototype(VIEW_WIDTH, BOUNDARY_THICKNESS));
-  entityFactory.RegisterPrototype("VBoundary", CreateBoundaryPrototype(BOUNDARY_THICKNESS, VIEW_HEIGHT));
+  entityFactory.RegisterPrototype("HBoundary", CreateBoundary(VIEW_WIDTH, BOUNDARY_THICKNESS));
+  entityFactory.RegisterPrototype("VBoundary", CreateBoundary(BOUNDARY_THICKNESS, VIEW_HEIGHT));
 
   // TODO register entity prototypes.
+  entityFactory.RegisterPrototype("Test", CreateTestEntity());
 }
 
 void EntityPrototypeService::OnShutdown()
@@ -40,7 +41,30 @@ void EntityPrototypeService::OnShutdown()
   ASTU_SERVICE(EntityFactoryService).DeregisterAllPrototypes();
 }
 
-shared_ptr<Entity> EntityPrototypeService::CreateBoundaryPrototype(float w, float h)
+shared_ptr<Entity> EntityPrototypeService::CreateTestEntity()
+{
+  auto entity = make_shared<Entity>();
+  entity->AddComponent(make_shared<CPose>(0, 0));
+
+    entity->AddComponent(make_shared<CScene>(PolylineBuilder()
+        .Color(TEST_ENTITY_COLOR)
+        .VertexBuffer(ShapeGenerator().GenSquare(TEST_ENTITY_SIZE))
+        .Build()));
+
+  entity->AddComponent(CBodyBuilder()
+      .Type(CBody::Type::Dynamic)
+      .Build());
+
+  entity->AddComponent(CPolygonColliderBuilder()
+      .Polygon(ShapeGenerator().GenSquare(TEST_ENTITY_SIZE))
+      .Friction(GENERAL_FRICTION)
+      .Restitution(GENERAL_RESTITUTION)
+      .Build());
+
+  return entity;  
+}
+
+shared_ptr<Entity> EntityPrototypeService::CreateBoundary(float w, float h)
 {
   auto entity = make_shared<Entity>();
   entity->AddComponent(make_shared<CPose>());
@@ -58,8 +82,8 @@ shared_ptr<Entity> EntityPrototypeService::CreateBoundaryPrototype(float w, floa
 
   entity->AddComponent(CPolygonColliderBuilder()
       .Polygon(ShapeGenerator().GenRectangle(w, h))
-      .Friction(0)
-      .Restitution(1)
+      .Friction(GENERAL_FRICTION)
+      .Restitution(GENERAL_RESTITUTION)
       .Build());
 
   return entity;

@@ -32,6 +32,7 @@ void GameModeService::OnStartup()
   AddEntity("VBoundary", hRadius, 0);
 
   // Add initial entities.
+  AddEntity("Test", 0, 0, 35);
 }
 
 void GameModeService::OnShutdown()
