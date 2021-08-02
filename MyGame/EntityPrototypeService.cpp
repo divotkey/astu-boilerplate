@@ -1,5 +1,5 @@
 /*
- * MyGame
+ * My Game
  * 
  * Copyright (c) 2021 Jane Doe. All rights reserved.
  */

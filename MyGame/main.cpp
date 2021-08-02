@@ -1,5 +1,5 @@
 /*
- * MyGame
+ * My Game
  * 
  * Copyright (c) 2021 Jane Doe. All rights reserved.
  */
@@ -33,7 +33,7 @@ int main()
 
 	// Add Services and Systems required ECS.
 	ASTU_CREATE_AND_ADD_SERVICE(EntityService);
-	ASTU_CREATE_AND_ADD_SERVICE(EntityFactoryService);
+	ASTU_CREATE_AND_ADD_SERVICE(EntityFactoryService);	
 	ASTU_CREATE_AND_ADD_SERVICE(Box2DPhysicsSystem);
 	ASTU_CREATE_AND_ADD_SERVICE(CollisionSignalService);
 	ASTU_CREATE_AND_ADD_SERVICE(SceneSystem);
@@ -51,8 +51,8 @@ int main()
 	// ASTU_SERVICE(InputMappingService).AddAxisMapping("Paddle", Keys::GamepadLeftThumbstickX);
 
 	// Configure application.
-	app.SetApplicationName("MyGame");
-	app.SetVersionString("1.0.0");
+	app.SetApplicationName("My Game");
+	app.SetVersionString("1.0.1");
 	app.SetResolution(Resolution::WXGA);
 	app.SetFullscreen(false);
 
