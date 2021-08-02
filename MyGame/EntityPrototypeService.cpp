@@ -44,7 +44,7 @@ void EntityPrototypeService::OnShutdown()
 shared_ptr<Entity> EntityPrototypeService::CreateTestEntity()
 {
   auto entity = make_shared<Entity>();
-  entity->AddComponent(make_shared<CPose>(0, 0));
+  entity->AddComponent(make_shared<CPose>(0.0f, 0.0f));
 
     entity->AddComponent(make_shared<CScene>(PolylineBuilder()
         .Color(TEST_ENTITY_COLOR)
