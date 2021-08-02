@@ -8,7 +8,7 @@ This repository contains the AST-Utilities repository and ASTU-Box2D as a submod
 
 `git clone -b gamebox2d --recurse-submodules https://github.com/divotkey/astu-boilerplate.git`.
 
-The boilerplate code requires to have SDL 2.0 (Simple Direct Layer)installed.
+The boilerplate code requires to have SDL 2.0 (Simple Direct Layer) installed.
 
 ## Acknowledgement
 
